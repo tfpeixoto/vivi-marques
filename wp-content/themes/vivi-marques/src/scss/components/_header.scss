@@ -1,0 +1,131 @@
+.header {
+  padding: 1rem;
+
+  &.fixed {
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    z-index: 200;
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      padding: 0;
+    }
+  }
+
+  &--lp {
+    background-color: $common;
+  }
+
+  .navbar-brand {
+    flex-grow: 1;
+    margin: 0 auto;
+
+    img {
+      max-width: initial !important;
+    }
+  }
+
+  .navbar,
+  &__container,
+  .navbar-brand {
+    @include media-breakpoint-down(md) {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .navbar-toggler {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: .45rem;
+    padding: 1rem;
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+
+    &.collapsed {
+      span {
+        background-color: $secondary;
+      }
+    }
+
+    span {
+      background-color: $primary;
+      content: '';
+      display: block;
+      height: 5px;
+
+      &:first-child {
+        width: 2rem;
+      }
+
+      &:nth-child(2n) {
+        width: 1rem;
+      }
+
+      &:nth-child(3n) {
+        width: 1.5rem;
+      }
+    }
+  }
+
+  &__menu {
+    display: none;
+    justify-content: flex-end;
+    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+      display: flex;
+    }
+
+    &.show {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .navbar-nav {
+      gap: 1rem;
+      margin-right: 2rem;
+      padding: 2rem 0;
+      text-align: center;
+      width: 100%;
+
+      @include media-breakpoint-up(lg) {
+        width: auto;
+      }
+    }
+
+    .nav-link {
+      border-radius: .5rem;
+      color: $secondary;
+      font-weight: 700;
+      padding: .5rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all ease-in-out .25s;
+      width: 100%;
+
+      @include media-breakpoint-up(md) {
+        padding: 1rem;
+      }
+
+      &:hover {
+        background-color: $primary;
+        color: white;
+      }
+    }
+  }
+
+  &__cta {
+    display: none;
+    line-height: 1.1;
+    padding: 1rem;
+
+    @include media-breakpoint-up(md) {
+      display: flex;
+    }
+  }
+}

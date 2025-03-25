@@ -1,0 +1,55 @@
+// Colors
+$primary: #BF6734;
+$secondary: #878C82;
+$common: #1E1E1E;
+$soft-grey: #F3F3F3;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "common": $common,
+  "soft-grey": $soft-grey,
+);
+
+// Texts
+$body-color: $common;
+$font-family-base: "Raleway", sans-serif;
+$font-weight-normal: 400;
+
+html {
+  scroll-padding-block-start: 200px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+.button {
+  align-items: center;
+  background-color: $primary;
+  border: 0;
+  border-radius: .5rem;
+  color: white;
+  display: flex;
+  font-weight: 600;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 1.125rem 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: fit-content;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $primary;
+  }
+}
+
+img {
+  max-width: 100%;
+}
