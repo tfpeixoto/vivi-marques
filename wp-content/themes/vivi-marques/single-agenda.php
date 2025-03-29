@@ -1,11 +1,44 @@
 <?php require_once('parts/header.php'); ?>
 
-<article class="single">
+<section class="hero">
   <div class="container">
+    <div class="hero__content">
+      <span class="hero__tag">Eventos</span>
+      <h1 class="hero__subtitle">Acompanhe Nossa Agenda</h1>
+    </div>
+
     <?php the_post_thumbnail(); ?>
-    <h1>Agenda: <?php the_title(); ?></h1>
-    <?php the_content(); ?>
   </div>
-</article>
+</section>
+
+<section class="events">
+  <div class="container">
+    <div class="events__title">
+      <h2>Próximos eventos</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan. </p>
+    </div>
+
+    <div class="events__list">
+      <?php
+      $args = array(
+        'post_type' => 'agenda',
+        'posts_per_page' => 3,
+      );
+      $product = new WP_Query($args);
+
+      if ($product->have_posts()) : while ($product->have_posts()) : $product->the_post(); ?>
+
+          <div class="events__item">
+            <h3><?php the_title(); ?></h3>
+            <p>Local</p>
+
+            <a href="<?php the_permalink(); ?>">Saiba mais</a>
+          </div>
+
+      <?php endwhile;
+      endif; ?>
+    </div>
+  </div>
+</section>
 
 <?php require_once('parts/footer.php'); ?>

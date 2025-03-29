@@ -5,34 +5,44 @@
  */
 require_once('parts/header.php'); ?>
 
-<section class="page">
+<section class="hero">
   <div class="container">
-    <h1>Acompanhe Nossa Agenda</h1>
+    <div class="hero__content">
+      <span class="hero__tag">Eventos</span>
+      <h1 class="hero__subtitle">Acompanhe Nossa Agenda</h1>
+    </div>
 
-    <?php
-    $args = array(
-      'post_type' => 'agenda',
-      'posts_per_page' => 3,
-    );
-    $posts = new WP_Query($args);
+    <?php the_post_thumbnail(); ?>
+  </div>
+</section>
 
-    if ($posts->have_posts()) : while ($posts->have_posts()) : $posts->the_post(); ?>
+<section class="events">
+  <div class="container">
+    <div class="events__title">
+      <h2>Próximos eventos</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan. </p>
+    </div>
 
-        <div class="posts__post post">
-          <a href="<?php the_permalink(); ?>" class="post__link">
-            <picture class="post__image">
-              <?php the_post_thumbnail(); ?>
-            </picture>
+    <div class="events__list">
+      <?php
+      $args = array(
+        'post_type' => 'agenda',
+        'posts_per_page' => 3,
+      );
+      $product = new WP_Query($args);
 
-            <div class="post__content">
-              <h3><?php the_title(); ?></h3>
-              <?php the_excerpt(); ?>
-            </div>
-          </a>
-        </div>
+      if ($product->have_posts()) : while ($product->have_posts()) : $product->the_post(); ?>
 
-    <?php endwhile;
-    endif; ?>
+          <div class="events__item">
+            <h3><?php the_title(); ?></h3>
+            <p>Local</p>
+
+            <a href="<?php the_permalink(); ?>">Saiba mais</a>
+          </div>
+
+      <?php endwhile;
+      endif; ?>
+    </div>
   </div>
 </section>
 

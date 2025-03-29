@@ -62,6 +62,18 @@
           'walker' => new WP_Bootstrap_Navwalker(),
         ));
         ?>
+
+        <a href="#">Compre agora</a>
+
+        <div class="footer__social">
+          <ul class="social__list">
+            <li><a href="https://www.instagram.com/vivimarquesoficial/" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram.svg" alt="Instagram" /></a></li>
+            <li><a href="https://www.facebook.com/vivimarquesoficial/" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/facebook.svg" alt="Facebook" /></a></li>
+            <li><a href="https://www.linkedin.com/in/vivi-marques-0b1b4b1b8/" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin.svg" alt="LinkedIn" /></a></li>
+            <li><a href="https://www.youtube.com/in/vivi-marques-0b1b4b1b8/" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/youtube.svg" alt="YouTube" /></a></li>
+            <li><a href="https://www.tiktok.com/in/vivi-marques-0b1b4b1b8/" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/tiktok.svg" alt="TikTok" /></a></li>
+          </ul>
+        </div>
       </div>
     </nav>
   </header>
