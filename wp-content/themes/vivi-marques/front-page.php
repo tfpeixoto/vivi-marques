@@ -6,14 +6,14 @@
 require_once('parts/header.php'); ?>
 
 <section class="hero">
-  <div class="container">
+  <div class="container hero__container">
     <div class="hero__content">
-      <h1 class="hero__title">Transformando Mulheres em Líderes do Amanhã</h1>
+      <h1 class="hero__title">Transformando Mulheres <strong><span>em</span> Líderes do Amanhã</strong></h1>
       <p class="hero__subtitle">Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam neque ultrices.</p>
 
       <div class="hero__content__buttons">
-        <a href="#" class="btn btn--primary">Saiba mais →</a>
-        <a href="#" class="btn btn--secondary">Acesse agora</a>
+        <a href="#" class="btn">Saiba mais →</a>
+        <a href="#" class="btn btn-outline-primary">Acesse agora</a>
       </div>
     </div>
   </div>

@@ -35,10 +35,11 @@
 @import "~bootstrap/scss/accordion";
 @import "~bootstrap/scss/images";
 
-// /*! purgecss start ignore */
-// @import "components/header";
+/*! purgecss start ignore */
+@import "components/header";
+@import "components/footer";
+/*! purgecss end ignore */
+
 // @import "components/blog";
 // @import "components/single";
 // @import "components/links";
-// /*! purgecss end ignore */
-// @import "components/footer";
