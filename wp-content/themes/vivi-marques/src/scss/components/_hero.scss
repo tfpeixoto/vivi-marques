@@ -1,14 +1,18 @@
 .hero {
   background-color: $common;
   color: white;
+  min-width: 600px;
   padding: 200px 0;
+  position: relative;
 
   &__container {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    display: flex;
   }
 
   &__content {
+    max-width: 55%;
+    z-index: 1;
+
     h1 {
       color: $primary;
       font-size: 3rem;
@@ -31,5 +35,14 @@
       display: flex;
       gap: 1rem;
     }
+  }
+
+  &__image {
+    height: auto;
+    min-width: 100%;
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    z-index: 0;
   }
 }

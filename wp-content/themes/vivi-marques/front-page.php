@@ -17,27 +17,35 @@ require_once('parts/header.php'); ?>
       </div>
     </div>
   </div>
+
+  <?php the_post_thumbnail('thumb-hero', ['class' => 'img-fluid hero__image']); ?>
 </section>
 
 <?php
 $args = array(
   'post_type' => 'produtos',
   'posts_per_page' => 3,
+  'order' => 'ASC',
 );
 $products = new WP_Query($args);
-if ($products->have_posts()) : while ($products->have_posts()) : $products->the_post(); ?>
+if ($products->have_posts()) : while ($products->have_posts()) : $products->the_post();
+
+    $color_graph = get_field('color_graph');
+?>
 
     <section class="product">
-      <div class="container">
+      <div class="container product__container">
+        <div class="product__image">
+          <?php the_post_thumbnail('thumb-product-home', ['class' => 'img-fluid']); ?>
+        </div>
+
         <div class="product__content">
-          <h2><?php the_title(); ?></h2>
+          <span class="product__content__tag"><?php the_title(); ?></span>
+          <h2 class="product__content__title"><?= esc_html(get_field('home_title')); ?></h2>
           <?php the_excerpt(); ?>
           <a href="<?php the_permalink(); ?>" class="btn btn--primary">Saiba mais</a>
         </div>
 
-        <div class="product__image">
-          <?php the_post_thumbnail(); ?>
-        </div>
       </div>
     </section>
 
@@ -93,30 +101,25 @@ endif; ?>
   </div>
 </section>
 
-<section class="blog">
+<section class="blog-posts">
   <div class="container">
-    <div class="blog__title">
+    <div class="blog-posts__title">
       <h2>Blog</h2>
       <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan. </p>
     </div>
 
-    <div class="blog__list">
+    <div class="blog-posts__list">
       <?php
       $args = array(
         'post_type' => 'post',
         'posts_per_page' => 3,
       );
       $posts = new WP_Query($args);
-      if ($posts->have_posts()) : while ($posts->have_posts()) : $posts->the_post(); ?>
+      if ($posts->have_posts()) : while ($posts->have_posts()) : $posts->the_post();
 
-          <article class="blog__item">
-            <?php the_post_thumbnail(); ?>
-            <h3><?php the_title(); ?></h3>
-            <?php the_excerpt(); ?>
-            <a href="<?php the_permalink(); ?>" class="btn btn--primary">Leia mais</a>
-          </article>
+          get_template_part('parts/card', 'post');
 
-      <?php endwhile;
+        endwhile;
       endif; ?>
     </div>
   </div>
