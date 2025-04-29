@@ -32,6 +32,7 @@
 
 // 8. Add additional custom code here
 @import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/dropdown";
 
 // @import "swiper/scss";
 // @import "swiper/scss/navigation";
@@ -46,4 +47,5 @@
 
 @import "components/hero";
 @import "components/product";
+@import "components/testimonial";
 @import "components/blog";

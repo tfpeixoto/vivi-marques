@@ -4,37 +4,27 @@
   padding: 3rem 0;
   position: relative;
 
-  &:before {
-    background-color: $common;
-    border-top-left-radius: 4rem;
-    border-top-right-radius: 0;
-    content: '';
-    display: block;
-    height: calc(100% + 3rem);
-    width: 35%;
-    position: absolute;
-    top: -3rem;
-    left: initial;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    right: 0;
-    left: initial;
-  }
-
   &:nth-child(2n) {
     background-color: white;
     color: $common;
 
-    &::before {
-      border-top-right-radius: 4rem;
-      border-top-left-radius: 0;
-      left: 0;
-      right: initial;
+    .product__image__graph {
+      @include media-breakpoint-up(md) {
+        border-top-right-radius: 4rem;
+        border-top-left-radius: 0;
+        left: 0;
+        right: initial;
+      }
     }
 
     .product__container {
-      grid-template-areas: 'thumbnail content';
+      grid-template-areas:
+        'thumbnail'
+        'content';
+
+      @include media-breakpoint-up(md) {
+        grid-template-areas: 'thumbnail content';
+      }
     }
   }
 
@@ -42,13 +32,44 @@
     align-items: center;
     display: grid;
     gap: 3rem;
-    grid-template-areas: 'content thumbnail';
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'thumbnail'
+      'content';
+
+    @include media-breakpoint-up(md) {
+      grid-template-areas: 'content thumbnail';
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   &__image {
     grid-area: thumbnail;
-    z-index: 2;
+
+    &__graph {
+      @include media-breakpoint-up(md) {
+        background-color: $common;
+        border-top-left-radius: 4rem;
+        border-top-right-radius: 0;
+        content: '';
+        display: block;
+        height: calc(100% + 3rem);
+        width: 35%;
+        position: absolute;
+        top: -3rem;
+        left: initial;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        right: 0;
+        left: initial;
+      }
+    }
+
+    &__img {
+      position: relative;
+      z-index: 2;
+    }
   }
 
   &__content {
@@ -71,6 +92,10 @@
     p {
       font-size: 1.125rem;
       line-height: 1.85;
+    }
+
+    .btn {
+      font-weight: 700;
     }
   }
 

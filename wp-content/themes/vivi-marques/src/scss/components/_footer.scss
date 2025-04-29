@@ -10,8 +10,13 @@
 
   &__container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    gap: 200px;
+
+    @include media-breakpoint-up(md) {
+      flex-direction: row;
+      gap: 200px;
+    }
   }
 
   &__content {
@@ -59,8 +64,14 @@
     &__nav {
       .navbar-nav {
         display: flex;
-        flex-direction: row;
-        gap: 1rem;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: .25rem;
+
+        @include media-breakpoint-up(md) {
+          flex-direction: row;
+          gap: 1rem;
+        }
 
         li {
           a {
@@ -74,12 +85,25 @@
   &__copyright {
     border-top: 1px solid white;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
     margin-top: 3rem;
     padding-top: 2rem;
 
+    @include media-breakpoint-up(md) {
+      flex-direction: row;
+      gap: 0;
+      justify-content: space-between;
+    }
+
     &__content {
       color: #493123;
+      text-align: center;
+
+      @include media-breakpoint-up(md) {
+        text-align: left;
+      }
 
       a {
         color: #493123;
@@ -88,6 +112,13 @@
 
     &__social {
       display: flex;
+      justify-content: center;
+      order: -1;
+
+      @include media-breakpoint-up(md) {
+        justify-content: flex-end;
+        order: initial;
+      }
 
       ul {
         display: flex;

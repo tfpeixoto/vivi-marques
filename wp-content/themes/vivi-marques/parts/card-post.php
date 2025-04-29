@@ -7,7 +7,7 @@
   <?php else : ?>
 
     <div class="card-post__image">
-      <img src="<?= get_template_directory_uri(); ?>/assets/images/default-image.jpg" alt="Imagem padrão" class="img-fluid">
+      <img src="<?= get_template_directory_uri(); ?>/assets/images/default-image.jpg" alt="Imagem do post" class="img-fluid">
     </div>
 
   <?php endif; ?>

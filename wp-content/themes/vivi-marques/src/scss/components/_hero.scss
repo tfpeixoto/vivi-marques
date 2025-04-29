@@ -1,23 +1,42 @@
 .hero {
   background-color: $common;
   color: white;
-  min-width: 600px;
-  padding: 200px 0;
+  overflow: hidden;
+  padding: 5rem 0;
   position: relative;
+
+  @include media-breakpoint-up(md) {
+    min-width: 600px;
+    padding: 12rem 0;
+  }
 
   &__container {
     display: flex;
   }
 
+  &__tag {
+    text-transform: uppercase;
+  }
+
   &__content {
-    max-width: 55%;
+    max-width: initial;
+    text-align: center;
     z-index: 1;
+
+    @include media-breakpoint-up(md) {
+      max-width: 55%;
+      text-align: initial;
+    }
 
     h1 {
       color: $primary;
-      font-size: 3rem;
+      font-size: 2.5rem;
       line-height: 1;
       margin-bottom: 1rem;
+
+      @include media-breakpoint-up(md) {
+        font-size: 3rem;
+      }
 
       span {
         color: white;
@@ -33,16 +52,26 @@
 
     &__buttons {
       display: flex;
+      justify-content: center;
       gap: 1rem;
+
+      @include media-breakpoint-up(md) {
+        justify-content: flex-start;
+      }
     }
   }
 
   &__image {
-    height: auto;
-    min-width: 100%;
+    min-height: 100%;
     position: absolute;
     inset: 0;
     object-fit: cover;
+    width: auto;
     z-index: 0;
+
+    @include media-breakpoint-up(md) {
+      height: auto;
+      min-width: 100%;
+    }
   }
 }

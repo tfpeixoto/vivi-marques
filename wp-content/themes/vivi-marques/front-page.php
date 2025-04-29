@@ -36,7 +36,8 @@ if ($products->have_posts()) : while ($products->have_posts()) : $products->the_
     <section class="product">
       <div class="container product__container">
         <div class="product__image">
-          <?php the_post_thumbnail('thumb-product-home', ['class' => 'img-fluid']); ?>
+          <?php the_post_thumbnail('thumb-product-home', ['class' => 'img-fluid product__image__img']); ?>
+          <div class="product__image__graph" style="background-color: <?= $color_graph ?>;"></div>
         </div>
 
         <div class="product__content">
@@ -59,43 +60,41 @@ endif; ?>
 
       <?php
       $args = array(
-        'post_type' => 'testimonial',
+        'post_type' => 'depoimentos',
         'posts_per_page' => 3,
+        'terms' => 'home',
       );
       $testimonial = new WP_Query($args);
       if ($testimonial->have_posts()) : while ($testimonial->have_posts()) : $testimonial->the_post(); ?>
 
-          <div class="testimonial__item">
-            <p>«When applied to building block a website or similar work product, a Visual Guide can be an intermediate step toward the end goal of a complete website. By creating a visual guide along the way, the designer or developer can get input from the other people involved in the website such as the customer, their manager, and other members of the team.»</p>
+          <div class="testimonials__item">
+            <p>"When applied to building block a website or similar work product, a Visual Guide can be an intermediate step toward the end goal of a complete website. By creating a visual guide along the way, the designer or developer can get input from the other people involved in the website such as the customer, their manager, and other members of the team."</p>
           </div>
 
       <?php endwhile;
       endif; ?>
 
-      <div class="testimonial__nav">
-        <button>
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/avatar.svg" alt="Avatar">
-          <div class="testimonial__nav__name">
-            <h3>Matt Cannon</h3>
-            <p>Head of Marketing</p>
-          </div>
-        </button>
+      <div id="testimonial-buttons" class="testimonials__nav">
 
-        <button>
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/avatar.svg" alt="Avatar">
-          <div class="testimonial__nav__name">
-            <h3>Matt Cannon</h3>
-            <p>Head of Marketing</p>
-          </div>
-        </button>
+        <?php
+        $args = array(
+          'post_type' => 'depoimentos',
+          'posts_per_page' => 3,
+          'terms' => 'home',
+        );
+        $testimonial = new WP_Query($args);
+        if ($testimonial->have_posts()) : while ($testimonial->have_posts()) : $testimonial->the_post(); ?>
 
-        <button>
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/avatar.svg" alt="Avatar">
-          <div class="testimonial__nav__name">
-            <h3>Matt Cannon</h3>
-            <p>Head of Marketing</p>
-          </div>
-        </button>
+            <button class="active">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonial-avatar.webp" alt="Avatar">
+              <div class="testimonials__nav__name">
+                <h3><?php the_title(); ?></h3>
+                <p><?= get_field('position'); ?></p>
+              </div>
+            </button>
+
+        <?php endwhile;
+        endif; ?>
       </div>
     </div>
   </div>

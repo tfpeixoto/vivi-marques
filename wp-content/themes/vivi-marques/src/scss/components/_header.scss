@@ -10,8 +10,35 @@
     padding: 1.5rem 0;
   }
 
+  .navbar-toggler {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: .35rem;
+    padding: 1rem;
+    width: 3.5rem;
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+
+    span {
+      background-color: $common;
+      display: block;
+      content: '';
+      height: 3px;
+      width: 100%;
+    }
+  }
+
   &__menu {
+    display: none;
     flex-grow: initial;
+
+    &.show {
+      display: flex;
+    }
 
     .navbar-nav {
       gap: .25rem;
@@ -19,11 +46,7 @@
       .nav-item {
         &.dropdown {
           display: flex;
-
-          &:after {
-            content: '♦';
-            display: block;
-          }
+          position: relative;
         }
 
         .nav-link {
@@ -35,7 +58,26 @@
           display: none;
 
           &.show {
-            display: block;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0 0 0 / 15%);
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            position: absolute;
+            text-wrap: nowrap;
+            top: 2rem;
+
+            .nav-item {
+              .dropdown-item {
+                padding: 1rem;
+                text-decoration: none;
+
+                &:hover {
+                  background-color: $primary;
+                  color: white;
+                }
+              }
+            }
           }
 
           li {
@@ -48,6 +90,11 @@
 
   &__social {
     color: $secondary;
+    display: none;
+
+    @include media-breakpoint-up(md) {
+      display: flex;
+    }
 
     ul {
       display: flex;
@@ -66,6 +113,11 @@
   }
 
   .btn {
+    display: none;
     font-weight: 700;
+
+    @include media-breakpoint-up(md) {
+      display: flex;
+    }
   }
 }
