@@ -10,20 +10,21 @@ require_once('parts/header.php'); ?>
     <div class="hero__content">
       <span class="hero__tag">Eventos</span>
       <h1 class="hero__subtitle">Acompanhe Nossa Agenda</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam neque ultrices.</p>
     </div>
 
     <?php the_post_thumbnail(); ?>
   </div>
 </section>
 
-<section class="events">
+<section class="page-list">
   <div class="container">
-    <div class="events__title">
+    <div class="page-list__title">
       <h2>Próximos eventos</h2>
       <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan. </p>
     </div>
 
-    <div class="events__list">
+    <div class="page-list__list">
       <?php
       $args = array(
         'post_type' => 'agenda',
@@ -31,16 +32,11 @@ require_once('parts/header.php'); ?>
       );
       $product = new WP_Query($args);
 
-      if ($product->have_posts()) : while ($product->have_posts()) : $product->the_post(); ?>
+      if ($product->have_posts()) : while ($product->have_posts()) : $product->the_post();
 
-          <div class="events__item">
-            <h3><?php the_title(); ?></h3>
-            <p>Local</p>
+          get_template_part('parts/card', 'event');
 
-            <a href="<?php the_permalink(); ?>">Saiba mais</a>
-          </div>
-
-      <?php endwhile;
+        endwhile;
       endif; ?>
     </div>
   </div>

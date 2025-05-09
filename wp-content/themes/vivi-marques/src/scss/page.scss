@@ -32,8 +32,10 @@
 
 // 8. Add additional custom code here
 @import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/dropdown";
 @import "~bootstrap/scss/accordion";
 @import "~bootstrap/scss/images";
+@import "~bootstrap/scss/buttons";
 
 /*! purgecss start ignore */
 @import "components/header";
@@ -44,3 +46,20 @@
 @import "components/history";
 @import "components/founders";
 @import "components/purpose";
+
+/*! purgecss start ignore */
+
+// not found page
+@import "components/not-found";
+// simple page
+@import "components/simple-page";
+// list page
+@import "components/page-list";
+@import "components/card-event";
+@import "components/card-post";
+// contact page
+@import "components/contact";
+// product page list
+@import "components/products-list";
+
+/*! purgecss end ignore */

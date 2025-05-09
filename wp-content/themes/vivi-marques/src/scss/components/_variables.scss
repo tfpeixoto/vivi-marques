@@ -15,6 +15,11 @@ $theme-colors: (
 $body-color: $common;
 $font-family-base: "Poppins", sans-serif;
 $font-weight-normal: 400;
+$font-size-base: 1.125rem;
+
+$btn-border-radius: 100px;
+$btn-padding-y: .75rem;
+$btn-padding-x: 1.25rem;
 
 html {
   scroll-padding-block-start: 7.5rem;
@@ -26,10 +31,11 @@ h3,
 h4,
 h5,
 h6 {
+  font-weight: 700 !important;
   text-wrap: balance;
 }
 
-.tag{
+.tag {
   text-transform: uppercase;
 }
 

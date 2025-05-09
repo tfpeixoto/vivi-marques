@@ -33,7 +33,7 @@
 
   <div class="container footer__copyright">
     <div class="footer__copyright__content">
-      Copyright © <?php the_date('Y'); ?> <a href="#">Vivi Marques</a> | <a href="politica-de-privacidade">Política de privacidade</a> | <a href="#">Termos de uso</a>
+      Copyright © <?php the_date('Y'); ?> <a href="<?= home_url(); ?>">Vivi Marques</a> | <a href="/politica-de-privacidade">Política de privacidade</a> | <a href="#">Termos de uso</a>
     </div>
 
     <div class="footer__copyright__social">

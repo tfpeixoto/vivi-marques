@@ -12,14 +12,14 @@
   </div>
 </section>
 
-<section class="products-page">
+<section class="page-list">
   <div class="container">
-    <div class="products-page__title">
+    <div class="page-list__title">
       <h2>Nossos produtos</h2>
       <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan. </p>
     </div>
 
-    <div class="products-page__list">
+    <div class="products-list">
       <?php
       $args = array(
         'post_type' => 'produtos',
@@ -29,14 +29,14 @@
 
       if ($product->have_posts()) : while ($product->have_posts()) : $product->the_post(); ?>
 
-          <div class="products-page__item">
+          <div class="products-list__item">
             <a href="<?php the_permalink(); ?>" class="post__link">
               <?php the_post_thumbnail(); ?>
 
-              <div class="products-page__content">
+              <div class="products-list__content">
                 <h3><?php the_title(); ?></h3>
                 <?php the_excerpt(); ?>
-                <a href="<?php the_permalink(); ?>">Saiba mais →</a>
+                <span>Saiba mais →</span>
               </div>
             </a>
           </div>

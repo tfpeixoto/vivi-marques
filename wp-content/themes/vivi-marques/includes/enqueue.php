@@ -5,7 +5,7 @@ function cynthia_guedes_enqueue_styles_scripts()
   $style = '';
 
   // Page
-  if (is_page() || is_single() || is_404()) {
+  if (is_page() || is_single() || is_404() || is_page('blog')) {
     $style = 'page';
     wp_enqueue_script('page', get_template_directory_uri() . '/assets/js/' . $style . '.js', array(), time(), true);
   }
