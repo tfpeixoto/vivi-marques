@@ -6,11 +6,7 @@
       </a>
 
       <p>Lorem ipsum dolor sit amet consectetur dolol drakgonil adipiscing elit aliquam mauris</p>
-
-      <form action="" method="post" class="footer__newsletter">
-        <input type="email" name="email" placeholder="Cadastre-se na nossa newsletter" />
-        <button type="submit" class="btn btn-primary">Inscrever</button>
-      </form>
+      <?= do_shortcode('[contact-form-7 id="849392a" title="Newsletter"]'); ?>
     </div>
 
     <div class="footer__menu">

@@ -36,7 +36,12 @@
               <div class="products-list__content">
                 <h3><?php the_title(); ?></h3>
                 <?php the_excerpt(); ?>
-                <span>Saiba mais →</span>
+                <span>
+                  Saiba mais
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.404 1.654 14.75 8l-6.346 6.346M14.75 8H1.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
               </div>
             </a>
           </div>

@@ -16,8 +16,8 @@
 
   <div class="card-event__content">
     <h3 class="card-event__title"><?php the_title(); ?></h3>
-    <p>Local - UF</p>
+    <p><?= the_field('place'); ?></p>
   </div>
 
-  <a href="<?php the_permalink(); ?>" class="btn btn-outline-common">Saiba mais</a>
+  <a href="<?php the_field('url'); ?>" target="_blank" class="btn btn-outline-common">Saiba mais</a>
 </article>

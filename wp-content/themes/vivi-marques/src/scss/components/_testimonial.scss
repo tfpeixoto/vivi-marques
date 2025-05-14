@@ -16,6 +16,7 @@
   }
 
   &__item {
+    display: none;
     font-size: 1.35rem;
     line-height: 1.6;
     padding: 2rem 0;
@@ -23,12 +24,21 @@
     @include media-breakpoint-up(md) {
       padding: 2rem 6rem;
     }
+
+    &.active {
+      display: block;
+    }
   }
 
   &__nav {
     border-top: 1px solid #8D8BA7;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+
+    @include media-breakpoint-up(md) {
+      flex-direction: row;
+      justify-content: space-around;
+    }
 
     button {
       align-items: center;
@@ -39,9 +49,13 @@
       display: flex;
       gap: 1rem;
       line-height: 1.2;
-      justify-content: space-between;
+      justify-content: center;
       padding: 1.5rem 1rem;
       text-align: left;
+
+      @include media-breakpoint-up(md) {
+        justify-content: space-between;
+      }
 
       &.active {
         border-top: 3px solid $primary;

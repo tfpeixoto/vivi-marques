@@ -8,9 +8,9 @@ require_once('parts/header.php'); ?>
 <section class="hero">
   <div class="container hero__container">
     <div class="hero__content">
-      <span class="tag">Sobre</span>
-      <h1 class="hero__title">Uma Jornada de Inspiração e Sucesso</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam neque ultrices.</p>
+      <span class="tag"><?= the_field('tag'); ?></span>
+      <h1 class="hero__title"><?= the_field('title'); ?></h1>
+      <p><?= the_field('description'); ?></p>
     </div>
   </div>
 

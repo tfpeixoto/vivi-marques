@@ -1,7 +1,7 @@
-<?php
+<?php 
 
 /**
- * Template name: Agenda
+ * Template name: Blog
  */
 require_once('parts/header.php'); ?>
 
@@ -20,21 +20,20 @@ require_once('parts/header.php'); ?>
 <section class="page-list">
   <div class="container">
     <div class="page-list__title">
-      <h2>Próximos eventos</h2>
+      <h2>Posts mais recentes</h2>
       <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan. </p>
     </div>
 
     <div class="page-list__list">
       <?php
       $args = array(
-        'post_type' => 'agenda',
+        'post_type' => 'post',
         'posts_per_page' => 3,
       );
-      $product = new WP_Query($args);
+      $posts = new WP_Query($args);
+      if ($posts->have_posts()) : while ($posts->have_posts()) : $posts->the_post();
 
-      if ($product->have_posts()) : while ($product->have_posts()) : $product->the_post();
-
-          get_template_part('parts/card', 'event');
+          get_template_part('parts/card', 'post');
 
         endwhile;
       endif; ?>

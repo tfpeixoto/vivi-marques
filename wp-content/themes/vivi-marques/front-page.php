@@ -8,11 +8,15 @@ require_once('parts/header.php'); ?>
 <section class="hero">
   <div class="container hero__container">
     <div class="hero__content">
-      <h1 class="hero__title">Transformando Mulheres <strong><span>em</span> Líderes do Amanhã</strong></h1>
-      <p class="hero__subtitle">Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam neque ultrices.</p>
+      <h1 class="hero__title"><?= the_field('title'); ?></h1>
+      <p class="hero__subtitle"><?= the_field('description'); ?></p>
 
       <div class="hero__content__buttons">
-        <a href="#" class="btn">Saiba mais →</a>
+        <a href="#" class="btn">Saiba mais
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.404 1.654 14.75 8l-6.346 6.346M14.75 8H1.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
         <a href="#" class="btn btn-outline-primary">Acesse agora</a>
       </div>
     </div>
@@ -57,35 +61,43 @@ endif; ?>
   <div class="container">
     <div class="testimonials__title">
       <h2>O que dizem nossos clientes</h2>
+    </div>
 
-      <?php
-      $args = array(
-        'post_type' => 'depoimentos',
-        'posts_per_page' => 3,
-        'terms' => 'home',
-      );
-      $testimonial = new WP_Query($args);
-      if ($testimonial->have_posts()) : while ($testimonial->have_posts()) : $testimonial->the_post(); ?>
-
-          <div class="testimonials__item">
-            <p>"When applied to building block a website or similar work product, a Visual Guide can be an intermediate step toward the end goal of a complete website. By creating a visual guide along the way, the designer or developer can get input from the other people involved in the website such as the customer, their manager, and other members of the team."</p>
-          </div>
-
-      <?php endwhile;
-      endif; ?>
-
-      <div id="testimonial-buttons" class="testimonials__nav">
-
+    <div id="testimonial-carousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
         <?php
         $args = array(
           'post_type' => 'depoimentos',
           'posts_per_page' => 3,
           'terms' => 'home',
         );
+        $count = 0;
         $testimonial = new WP_Query($args);
         if ($testimonial->have_posts()) : while ($testimonial->have_posts()) : $testimonial->the_post(); ?>
 
-            <button class="active">
+            <div class="carousel-item testimonials__item <?= $count == 0 ? 'active' : ''; ?>" data-bs-interval="5000">
+              <?php the_content(); ?>
+            </div>
+
+        <?php
+            $count++;
+          endwhile;
+        endif; ?>
+      </div>
+
+      <div class="carousel-indicators testimonials__nav">
+        <?php
+        $args = array(
+          'post_type' => 'depoimentos',
+          'posts_per_page' => 3,
+          'terms' => 'home',
+        );
+        $count = 0;
+        $testimonial = new WP_Query($args);
+        if ($testimonial->have_posts()) : while ($testimonial->have_posts()) : $testimonial->the_post();
+        ?>
+
+            <button type="button" data-bs-target="#testimonial-carousel" data-bs-slide-to="<?= $count; ?>" aria-current="<?= $count == 0 ? 'true' : ''; ?>" aria-label="<?= the_title(); ?>" class="<?= $count == 0 ? 'active' : ''; ?>">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonial-avatar.webp" alt="Avatar">
               <div class="testimonials__nav__name">
                 <h3><?php the_title(); ?></h3>
@@ -93,7 +105,9 @@ endif; ?>
               </div>
             </button>
 
-        <?php endwhile;
+        <?php
+            $count++;
+          endwhile;
         endif; ?>
       </div>
     </div>
