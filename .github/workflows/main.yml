@@ -1,8 +1,7 @@
 on:
-  push:
+  pull_request:
     branches:
       - main
-      - develop
 
 name: 🚀 Deploy website on push
 jobs:
@@ -20,7 +19,7 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_SECRET }}
           protocol: ftp
-          server-dir: public_html/
+          server-dir: /
           exclude: |
             **/wp-content/uploads/**
             .htaccess
