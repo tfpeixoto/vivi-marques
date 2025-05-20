@@ -32,21 +32,20 @@
 
 // 8. Add additional custom code here
 @import "~bootstrap/scss/navbar";
-@import "~bootstrap/scss/accordion";
-@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/dropdown";
 
-@import "swiper/scss";
-@import "swiper/scss/navigation";
-@import "swiper/scss/pagination";
-@import "swiper/scss/autoplay";
+// @import "swiper/scss";
+// @import "swiper/scss/navigation";
+// @import "swiper/scss/pagination";
+// @import "swiper/scss/autoplay";
 
-// /*! purgecss start ignore */
-// @import "components/header";
-// /*! purgecss end ignore */
-// @import "components/hero";
-// @import "components/anxiety";
-// @import "components/about";
-// @import "components/clients";
-// @import "components/blog";
-// @import "components/contact";
-// @import "components/footer";
+/*! purgecss start ignore */
+@import "components/header";
+@import "components/footer";
+@import "components/card-post";
+/*! purgecss end ignore */
+
+@import "components/hero";
+@import "components/product";
+@import "components/testimonial";
+@import "components/blog";

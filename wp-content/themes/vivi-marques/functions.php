@@ -22,11 +22,11 @@ add_action('after_setup_theme', 'vivi_marques_add_theme_resources');
 /**
  * Register Custom Navigation Walker
  */
-function group_conecta_register_navwalker()
+function vivi_marques_register_navwalker()
 {
   require_once('includes/class-wp-bootstrap-navwalker.php');
 }
-add_action('after_setup_theme', 'group_conecta_register_navwalker');
+add_action('after_setup_theme', 'vivi_marques_register_navwalker');
 
 /**
  * Register Menus

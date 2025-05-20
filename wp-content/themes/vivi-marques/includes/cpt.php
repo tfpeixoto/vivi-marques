@@ -143,8 +143,8 @@ add_action('init', 'vivi_marques_post_type_cases');
  */
 function vivi_marques_post_type_schedule()
 {
-  $nomeSingular = 'Agenda';
-  $nomePlural = 'Agendas';
+  $nomeSingular = 'Evento';
+  $nomePlural = 'Eventos';
   $description = $nomeSingular;
 
   $labels = array(

@@ -5,34 +5,21 @@
  */
 require_once('parts/header.php'); ?>
 
-<section class="page">
+<section class="hero">
   <div class="container">
-    <h1>Cases</h1>
+    <div class="hero__content">
+      <span class="hero__tag">Cases Inspiradores</span>
+      <h1>Transformações Reais para Mulheres Empreendedoras</h1>
+      <p>Breve texto apresentando o impacto positivo da mentoria e dos projetos liderados pela Vivi Marques</p>
+    </div>
 
-    <?php
-    $args = array(
-      'post_type' => 'cases',
-      'posts_per_page' => 3,
-    );
-    $posts = new WP_Query($args);
+    <?php the_post_thumbnail(); ?>
+  </div>
+</section>
 
-    if ($posts->have_posts()) : while ($posts->have_posts()) : $posts->the_post(); ?>
-
-        <div class="posts__post post">
-          <a href="<?php the_permalink(); ?>" class="post__link">
-            <picture class="post__image">
-              <?php the_post_thumbnail(); ?>
-            </picture>
-
-            <div class="post__content">
-              <h3><?php the_title(); ?></h3>
-              <?php the_excerpt(); ?>
-            </div>
-          </a>
-        </div>
-
-    <?php endwhile;
-    endif; ?>
+<section>
+  <div class="container">
+    Conteúdo
   </div>
 </section>
 

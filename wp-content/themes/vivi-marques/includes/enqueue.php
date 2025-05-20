@@ -5,7 +5,7 @@ function cynthia_guedes_enqueue_styles_scripts()
   $style = '';
 
   // Page
-  if (is_page() || is_single() || is_404()) {
+  if (is_page() || is_single() || is_404() || is_page('blog')) {
     $style = 'page';
     wp_enqueue_script('page', get_template_directory_uri() . '/assets/js/' . $style . '.js', array(), time(), true);
   }
@@ -14,12 +14,6 @@ function cynthia_guedes_enqueue_styles_scripts()
   if (is_front_page() || is_page('home')) {
     $style = 'home';
     wp_enqueue_script('home', get_template_directory_uri() . '/assets/js/' . $style . '.js', array(), time(), true);
-  }
-
-  // LP Programa Leve
-  if (is_page('programa-leve')) {
-    $style = 'lp';
-    wp_enqueue_script('lp', get_template_directory_uri() . '/assets/js/' . $style . '.js', array(), time(), true);
   }
 
   // Include style
@@ -43,12 +37,12 @@ function cynthia_guedes_enqueue_styles_scripts()
   /**
    * Include url
    */
-  wp_localize_script(
-    'page',
-    'data',
-    array(
-      'ajax_url' => admin_url('admin-ajax.php'),
-    )
-  );
+  // wp_localize_script(
+  //   'page',
+  //   'data',
+  //   array(
+  //     'ajax_url' => admin_url('admin-ajax.php'),
+  //   )
+  // );
 }
 add_action('wp_enqueue_scripts', 'cynthia_guedes_enqueue_styles_scripts');

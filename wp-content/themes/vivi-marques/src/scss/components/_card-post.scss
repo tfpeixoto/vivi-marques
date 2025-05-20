@@ -1,0 +1,37 @@
+.card-post {
+  border: 1px solid $soft-grey;
+  border-radius: 1.5rem;
+  color: $common;
+  line-height: 1.1;
+  padding: 1.5rem 1.5rem 3rem 1.5rem;
+
+  &__image {
+    aspect-ratio: 4 / 3;
+    border-radius: 1rem;
+    background-color: $soft-grey;
+    margin-bottom: 1.5rem;
+    max-height: 220px;
+    overflow: hidden;
+    width: 100%;
+
+    img {
+      height: 100%;
+      max-width: auto;
+    }
+  }
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  &__link {
+    color: $secondary;
+    font-weight: 700;
+    text-decoration: none;
+  }
+}

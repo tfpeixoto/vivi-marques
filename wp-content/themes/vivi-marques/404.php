@@ -6,10 +6,10 @@
 require_once('parts/header.php'); ?>
 
 <section class="not-found">
-  <div class="container">
-    <h1>Página não encontrada</h1>
-    <p>Parece que vocês buscou um conteúdo que não existe.</p>
-    <a href="/" class="button">Voltar para a home</a>
+  <div class="container not-found__container">
+    <h1>404</h1>
+    <p>Ops! A página que você procura não foi encontrada.</p>
+    <a href="<?= home_url(); ?>" class="btn btn-secondary">Voltar para a home</a>
   </div>
 </section>
 

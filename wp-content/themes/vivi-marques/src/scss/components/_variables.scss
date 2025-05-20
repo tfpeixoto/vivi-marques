@@ -1,8 +1,8 @@
 // Colors
-$primary: #BF6734;
-$secondary: #878C82;
-$common: #1E1E1E;
-$soft-grey: #F3F3F3;
+$primary: #F8C473;
+$secondary: #0D3B34;
+$common: #493123;
+$soft-grey: #CCCCCC;
 
 $theme-colors: (
   "primary": $primary,
@@ -13,11 +13,16 @@ $theme-colors: (
 
 // Texts
 $body-color: $common;
-$font-family-base: "Raleway", sans-serif;
+$font-family-base: "Poppins", sans-serif;
 $font-weight-normal: 400;
+$font-size-base: 1.125rem;
+
+$btn-border-radius: 100px;
+$btn-padding-y: .75rem;
+$btn-padding-x: 1.25rem;
 
 html {
-  scroll-padding-block-start: 200px;
+  scroll-padding-block-start: 7.5rem;
 }
 
 h1,
@@ -26,27 +31,41 @@ h3,
 h4,
 h5,
 h6 {
+  font-weight: 700 !important;
   text-wrap: balance;
 }
 
-.button {
+.tag {
+  text-transform: uppercase;
+}
+
+.btn {
   align-items: center;
   background-color: $primary;
-  border: 0;
-  border-radius: .5rem;
-  color: white;
+  border: 1px solid $primary;
+  border-radius: 2.5rem;
+  color: $common;
+  cursor: pointer;
   display: flex;
-  font-weight: 600;
-  gap: 1rem;
+  font-weight: 400;
+  gap: .5rem;
   justify-content: space-between;
-  padding: 1.125rem 1rem;
+  padding: .75rem 1.25rem;
   text-decoration: none;
-  text-transform: uppercase;
   width: fit-content;
   white-space: nowrap;
+  transition: all 0.3s ease-in-out;
 
-  &:hover {
-    background-color: $primary;
+  &.btn-secondary {
+    background-color: $secondary;
+    border: 1px solid $secondary;
+    color: white;
+  }
+
+  &.btn-outline-primary {
+    background-color: transparent;
+    border: 1px solid $primary;
+    color: $primary;
   }
 }
 

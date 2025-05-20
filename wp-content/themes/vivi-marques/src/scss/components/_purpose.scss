@@ -1,0 +1,49 @@
+.purpose {
+  background-color: #E0A3A3;
+  color: white;
+  padding: 5rem 0;
+  text-align: center;
+
+  &__title {
+    margin: 0 auto 4rem auto;
+    max-width: 60%;
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+      line-height: 1.1;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  &__item {
+    background-color: white;
+    border-radius: 1.5rem;
+    color: $common;
+    padding: 2rem;
+
+    span {
+      font-size: 3.5rem;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.25rem;
+    }
+  }
+}
