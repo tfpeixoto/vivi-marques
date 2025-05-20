@@ -1,0 +1,48 @@
+.hero-post {
+  &__container {
+    align-items: center;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+    margin: 1rem auto;
+
+    @include media-breakpoint-up(md) {
+      gap: 4rem;
+      grid-template-columns: 1fr 1fr;
+      margin: 4rem auto;
+    }
+  }
+
+  &__breadcrumb {
+    font-size: 1rem;
+    font-weight: 700;
+
+    a {
+      color: $common;
+      font-weight: 400;
+      text-decoration: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &>* {
+      margin: 0;
+    }
+
+    p {
+      font-size: 1.125rem;
+      line-height: 1.2;
+    }
+  }
+
+  &__image {
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+}
