@@ -1,7 +1,8 @@
 on:
-  pull_request:
+  push:
     branches:
       - main
+      - develop
 
 name: 🚀 Deploy website on push
 jobs:
