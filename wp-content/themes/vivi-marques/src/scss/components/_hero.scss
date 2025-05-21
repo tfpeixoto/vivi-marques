@@ -10,11 +10,29 @@
     padding: 12rem 0;
   }
 
+  &--internal {
+    .hero__content {
+      .hero__title {
+        color: white !important;
+        font-size: 3rem;
+        margin-bottom: 1.25rem;
+
+        strong {
+          color: $primary !important;
+          font-weight: 700;
+        }
+      }
+
+    }
+  }
+
   &__container {
     display: flex;
   }
 
   &__tag {
+    display: block;
+    margin-bottom: 1.25rem;
     text-transform: uppercase;
   }
 
@@ -24,7 +42,7 @@
     z-index: 1;
 
     @include media-breakpoint-up(md) {
-      max-width: 55%;
+      max-width: 50%;
       text-align: initial;
     }
 
@@ -34,7 +52,7 @@
       font-weight: 400 !important;
       line-height: 1;
       margin-bottom: 1rem;
-      
+
       @include media-breakpoint-up(md) {
         font-size: 3rem;
       }

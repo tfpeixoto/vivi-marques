@@ -1,15 +1,20 @@
-<?php require_once('parts/header.php'); ?>
+<?php 
 
-<section class="hero">
-  <div class="container">
+/**
+ * Template name: Produtos
+ */
+require_once('parts/header.php'); ?>
+
+<section class="hero hero--internal">
+  <div class="container hero__container">
     <div class="hero__content">
-      <span class="hero__tag">Produtos</span>
-      <h1 class="hero__subtitle">Escolha a Ferramenta para sua Jornada</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam neque ultrices.</p>
+      <span class="hero__tag"><?= the_field('tag'); ?></span>
+      <h1 class="hero__title"><?= the_field('title'); ?></h1>
+      <p><?= the_field('description'); ?></p>
     </div>
-
-    <?php the_post_thumbnail(); ?>
   </div>
+
+  <?php the_post_thumbnail('thumb-hero', ['class' => 'img-fluid hero__image']); ?>
 </section>
 
 <section class="page-list">
@@ -51,5 +56,39 @@
     </div>
   </div>
 </section>
+
+<section class="case-testimonial">
+  <div class="container case-testimonial__container">
+    <?php
+    $args = array(
+      'post_type' => 'depoimentos',
+      'posts_per_page' => 1,
+      'terms' => get_post_field('post_name', get_post()),
+    );
+
+    $testimonial = new WP_Query($args);
+    if ($testimonial->have_posts()) : while ($testimonial->have_posts()) : $testimonial->the_post(); ?>
+
+        <div class="case-testimonial__item">
+          <?php the_content(); ?>
+        </div>
+
+        <div class="case-testimonial__author">
+          <div class="case-testimonial__author__image">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonial-avatar.webp" alt="Avatar">
+          </div>
+
+          <div class="case-testimonial__author__content">
+            <p>
+              <strong><?php the_title(); ?></strong>
+              <?= the_field('position'); ?>
+            </p>
+          </div>
+        </div>
+
+    <?php endwhile;
+    endif; ?>
+</section>
+
 
 <?php require_once('parts/footer.php'); ?>

@@ -14,8 +14,9 @@
     justify-content: space-between;
 
     @include media-breakpoint-up(md) {
-      flex-direction: row;
-      gap: 200px;
+      display: grid;
+      grid-template-columns: 4fr 6fr;
+      gap: 8rem;
     }
   }
 
@@ -59,7 +60,7 @@
       }
     }
 
-    .wpcf7-form-control-wrap{
+    .wpcf7-form-control-wrap {
       display: block;
       height: fit-content;
     }
@@ -81,7 +82,7 @@
       color: $primary;
       font-size: 1.25rem;
       font-weight: 700;
-      margin: 1rem 0 1.5rem 0;
+      margin: 1rem 0 1.25rem 0;
     }
 
     &__nav {

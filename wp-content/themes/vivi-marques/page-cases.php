@@ -5,21 +5,104 @@
  */
 require_once('parts/header.php'); ?>
 
-<section class="hero">
-  <div class="container">
+<section class="hero hero--internal">
+  <div class="container hero__container">
     <div class="hero__content">
-      <span class="hero__tag">Cases Inspiradores</span>
-      <h1>Transformações Reais para Mulheres Empreendedoras</h1>
-      <p>Breve texto apresentando o impacto positivo da mentoria e dos projetos liderados pela Vivi Marques</p>
+      <span class="hero__tag"><?= the_field('tag'); ?></span>
+      <h1 class="hero__title"><?= the_field('title'); ?></h1>
+      <p><?= the_field('description'); ?></p>
+    </div>
+  </div>
+
+  <?php the_post_thumbnail('thumb-hero', ['class' => 'img-fluid hero__image']); ?>
+</section>
+
+<section class="case-intro">
+  <div class="container case-intro__container">
+    <div class="case-intro__content">
+      <h2 class="case-intro__title"><?= the_field('case_intro_title'); ?></h2>
+      <p class="case-intro__description"><?= the_field('case_intro_description'); ?></p>
+      <a href="<?= the_field('case_intro_link'); ?>">
+        <?= the_field('case_intro_button_text'); ?>
+      </a>
     </div>
 
-    <?php the_post_thumbnail(); ?>
+    <div class="case-intro__image">
+      <img src="<?= get_template_directory_uri(); ?>/assets/images/case-intro.png" alt="Case Intro" class="img-fluid">
+    </div>
   </div>
 </section>
 
-<section>
+<section class="page-list">
   <div class="container">
-    Conteúdo
+    <div class="page-list__title">
+      <h2>Histórias de Sucesso</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan.</p>
+    </div>
+
+    <div class="products-list">
+      <?php
+      $args = array(
+        'post_type' => 'cases',
+        'posts_per_page' => 3,
+      );
+      $cases = new WP_Query($args);
+
+      if ($cases->have_posts()) : while ($cases->have_posts()) : $cases->the_post(); ?>
+
+          <div class="products-list__item">
+            <a href="<?php the_permalink(); ?>" class="post__link">
+              <?php the_post_thumbnail(); ?>
+
+              <div class="products-list__content">
+                <h3><?php the_title(); ?></h3>
+                <?php the_excerpt(); ?>
+                <span>
+                  Saiba mais
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.404 1.654 14.75 8l-6.346 6.346M14.75 8H1.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          </div>
+
+      <?php endwhile;
+      endif; ?>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="container">
+    <div class="benefits__title">
+      <span><?= the_field('benefits_tag'); ?></span>
+      <h2><?= the_field('benefits_title'); ?></h2>
+      <p><?= the_field('benefits_description'); ?></p>
+    </div>
+
+    <div class="benefits__content">
+      <ul>
+        <?php
+        if (have_rows('benefits_items')):
+          while (have_rows('benefits_items')) : the_row();
+            $content = get_sub_field('benefits_items_content');
+        ?>
+
+            <li class="timeline__item"><?= $content; ?></li>
+
+        <?php
+          endwhile;
+        endif;
+        ?>
+      </ul>
+    </div>
+
+    <div class="benefits__cta">
+      <a href="<?= the_field('benefits_link'); ?>">
+        <?= the_field('benefits_button_text'); ?>
+      </a>
+    </div>
   </div>
 </section>
 

@@ -41,30 +41,29 @@
 /*! purgecss start ignore */
 @import "components/header";
 @import "components/footer";
-/*! purgecss end ignore */
-
 @import "components/hero";
-@import "components/history";
-@import "components/founders";
-@import "components/purpose";
-
-/*! purgecss start ignore */
 
 // not found page
-@import "components/not-found";
+@import "components/page-error";
 // simple page
-@import "components/simple-page";
-// list page
+@import "components/page-simple";
+@import "components/page-history";
+@import "components/page-founders";
+@import "components/page-purpose";
+@import "components/page-intro";
+// list page/products
 @import "components/page-list";
+@import "components/products-list";
 @import "components/card-event";
 @import "components/card-post";
 // contact page
 @import "components/contact";
-// product page list
-@import "components/products-list";
-
-@import "components/hero-post";
+// product page
+@import "components/product-content";
+@import "components/product-testimonial";
+// post
+@import "components/post-hero";
 @import "components/post-content";
-@import "components/comments";
+@import "components/post-comments";
 
 /*! purgecss end ignore */

@@ -1,9 +1,15 @@
 .products-list {
   display: grid;
   gap: 1rem;
-  grid-template-areas:
-    'a b'
-    'a c';
+  grid-template-areas: 'a'
+    'b'
+    'c';
+
+  @include media-breakpoint-up(md) {
+    grid-template-areas:
+      'a b'
+      'a c';
+  }
 
   &__item {
     border-radius: 1.25rem;
@@ -41,6 +47,11 @@
     &:nth-child(1n) {
       align-items: flex-end;
       grid-area: a;
+      text-align: left;
+
+      @include media-breakpoint-up(md) {
+        text-align: center;
+      }
     }
 
     &:nth-child(2n) {
