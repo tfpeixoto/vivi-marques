@@ -10,6 +10,14 @@
     padding: 12rem 0;
   }
 
+  &--blog {
+    .hero__content {
+      .hero__title {
+        color: white !important;
+      }
+    }
+  }
+
   &--internal {
     .hero__content {
       .hero__title {

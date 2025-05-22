@@ -22,18 +22,23 @@ require_once('parts/header.php'); ?>
     <div class="case-intro__content">
       <h2 class="case-intro__title"><?= the_field('case_intro_title'); ?></h2>
       <p class="case-intro__description"><?= the_field('case_intro_description'); ?></p>
-      <a href="<?= the_field('case_intro_link'); ?>">
-        <?= the_field('case_intro_button_text'); ?>
-      </a>
+      <a href="<?= the_field('case_intro_link'); ?>" class="btn btn-secondary">Veja como podemos impactar você</a>
     </div>
 
     <div class="case-intro__image">
-      <img src="<?= get_template_directory_uri(); ?>/assets/images/case-intro.png" alt="Case Intro" class="img-fluid">
+      <?php
+      $image = get_field('case_intro_image');
+      if ($image) :
+      ?>
+
+        <img src="<?= esc_url($image['url']); ?>" alt="<?= esc_attr($image['alt']); ?>" class="img-fluid">
+
+      <?php endif; ?>
     </div>
   </div>
 </section>
 
-<section class="page-list">
+<section class="page-list page-list--secondary">
   <div class="container">
     <div class="page-list__title">
       <h2>Histórias de Sucesso</h2>
@@ -74,34 +79,38 @@ require_once('parts/header.php'); ?>
 </section>
 
 <section class="benefits">
-  <div class="container">
+  <div class="container benefits__container">
     <div class="benefits__title">
-      <span><?= the_field('benefits_tag'); ?></span>
-      <h2><?= the_field('benefits_title'); ?></h2>
-      <p><?= the_field('benefits_description'); ?></p>
+      <span>Benefícios da Mentoria</span>
+      <h2>O que torna nossas estratégias tão impactantes?</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit tortor eu egestas morbi sem vulputate etiam facilisis pellentesque ut quis.</p>
     </div>
 
     <div class="benefits__content">
       <ul>
-        <?php
-        if (have_rows('benefits_items')):
-          while (have_rows('benefits_items')) : the_row();
-            $content = get_sub_field('benefits_items_content');
-        ?>
-
-            <li class="timeline__item"><?= $content; ?></li>
-
-        <?php
-          endwhile;
-        endif;
-        ?>
+        <li>All analytics features</li>
+        <li>Up to 250,000 tracked visits</li>
+        <li>Normal support</li>
+        <li>Mobile app</li>
       </ul>
     </div>
 
     <div class="benefits__cta">
-      <a href="<?= the_field('benefits_link'); ?>">
-        <?= the_field('benefits_button_text'); ?>
-      </a>
+      <p>Quer ser o próximo case de sucesso? </p>
+      <a href="<?= the_field('benefits_link'); ?>" class="btn btn-common">Entre em contato</a>
+    </div>
+  </div>
+</section>
+
+<section class="case-testimonial">
+  <div class="container case-testimonial__container">
+    <div class="case-testimoniail__title">
+      <h2>O que elas dizem</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan. </p>
+    </div>
+
+    <div class="case-testimonial__content">
+      Depoimento
     </div>
   </div>
 </section>

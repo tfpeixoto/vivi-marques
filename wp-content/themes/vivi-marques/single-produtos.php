@@ -4,7 +4,7 @@
   <div class="container hero__container">
     <div class="hero__content">
       <span class="hero__tag">Produtos</span>
-      <h1 class="hero__subtitle"><?php the_title(); ?></h1>
+      <h1 class="hero__subtitle"><strong><?php the_title(); ?></strong></h1>
       <?php the_excerpt(); ?>
     </div>
 
