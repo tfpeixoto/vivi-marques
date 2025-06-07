@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Template name: Produtos
@@ -36,7 +36,15 @@ require_once('parts/header.php'); ?>
 
           <div class="products-list__item">
             <a href="<?php the_permalink(); ?>" class="post__link">
-              <?php the_post_thumbnail(); ?>
+              <div class="products-list__image">
+                <?php if (get_field('products_image_highlight')):
+                  $image = get_field('products_image_highlight');
+                ?>
+
+                  <img class="img-fluid products-list__image__img" src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>" />
+
+                <?php endif; ?>
+              </div>
 
               <div class="products-list__content">
                 <h3><?php the_title(); ?></h3>

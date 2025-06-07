@@ -11,6 +11,25 @@
       'a c';
   }
 
+  &__image {
+    background-color: #f2f2f2;
+    content: '';
+    display: block;
+    height: 100%;
+    inset: 0;
+    position: absolute;
+    width: 100%;
+
+    img {
+      inset: 0;
+      object-fit: cover;
+      min-height: 100%;
+      position: absolute;
+      width: 100%;
+      z-index: 0;
+    }
+  }
+
   &__item {
     border-radius: 1.25rem;
     display: flex;
@@ -21,14 +40,6 @@
     a {
       color: $common;
       text-decoration: none;
-    }
-
-    img {
-      inset: 0;
-      object-fit: cover;
-      position: absolute;
-      width: 100%;
-      z-index: 0;
     }
 
     p {

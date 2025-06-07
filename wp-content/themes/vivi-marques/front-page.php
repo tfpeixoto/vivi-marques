@@ -40,7 +40,14 @@ if ($products->have_posts()) : while ($products->have_posts()) : $products->the_
     <section class="product">
       <div class="container product__container">
         <div class="product__image">
-          <?php the_post_thumbnail('thumb-product-home', ['class' => 'img-fluid product__image__img']); ?>
+          <?php if (get_field('home_image_highlight')):
+            $image = get_field('home_image_highlight');
+          ?>
+
+            <img class="img-fluid product__image__img" src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>" />
+
+          <?php endif; ?>
+
           <div class="product__image__graph" style="background-color: <?= $color_graph ?>;"></div>
         </div>
 
