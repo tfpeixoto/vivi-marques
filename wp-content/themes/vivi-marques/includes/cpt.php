@@ -122,7 +122,9 @@ function vivi_marques_post_type_cases()
 
   $supports = array(
     'title',
+    'excerpt',
     'editor',
+    'thumbnail',
   );
 
   $args = array(

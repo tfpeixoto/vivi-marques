@@ -1,11 +1,14 @@
 .history {
   background-color: $secondary;
   color: white;
-  padding: 5rem;
+  padding: 5rem 0;
   text-align: center;
 
-  &__title {
+  @include media-breakpoint-up(md) {
+    padding: 5rem;
+  }
 
+  &__title {
     h2 {
       font-size: 2.5rem;
       font-weight: 700;
@@ -13,7 +16,7 @@
     }
 
     p {
-      font-size: 1.375rem;
+      font-size: 1.175rem;
     }
   }
 

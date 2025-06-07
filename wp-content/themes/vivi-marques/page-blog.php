@@ -5,15 +5,15 @@
  */
 require_once('parts/header.php'); ?>
 
-<section class="hero">
-  <div class="container">
+<section class="hero hero--blog">
+  <div class="container hero__container">
     <div class="hero__content">
       <span class="hero__tag"><?= the_field('tag'); ?></span>
-      <h1 class="hero__subtitle"><?= the_field('title'); ?></h1>
+      <h1 class="hero__title"><?= the_field('title'); ?></h1>
       <p><?= the_field('description'); ?></p>
     </div>
 
-    <?php the_post_thumbnail(); ?>
+      <?php the_post_thumbnail('thumb-hero', ['class' => 'img-fluid hero__image']); ?>
   </div>
 </section>
 

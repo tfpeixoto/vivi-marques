@@ -80,3 +80,27 @@ function vivi_marques_excerpt_length($length)
   return 20;
 }
 add_filter('excerpt_length', 'vivi_marques_excerpt_length');
+
+
+function custom_comment_format($comment, $args, $depth)
+{
+?>
+  <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
+    <div class="comment-body">
+      <div class="comment-avatar">
+        <?= get_avatar($comment, 60); ?>
+      </div>
+
+      <div class="comment-content">
+        <h3 class="comment-author">
+          <?= get_comment_author(); ?>
+        </h3>
+
+        <div class="comment-text">
+          <?php comment_text(); ?>
+        </div>
+      </div>
+    </div>
+  </li>
+<?php
+}

@@ -1,6 +1,6 @@
 .testimonials {
   background-color: $common;
-  // background-image: url('../images/testimonial-pattern.png');
+  background-image: url('../images/bg-testimonial.png');
   background-repeat: repeat;
   color: white;
   padding: 4rem 0;
@@ -17,7 +17,7 @@
 
   &__item {
     display: none;
-    font-size: 1.35rem;
+    font-size: 1.1rem;
     line-height: 1.6;
     padding: 2rem 0;
 
@@ -47,6 +47,7 @@
       color: white;
       cursor: pointer;
       display: flex;
+      font-size: 1.1rem;;
       gap: 1rem;
       line-height: 1.2;
       justify-content: center;

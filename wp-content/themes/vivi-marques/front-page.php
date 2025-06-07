@@ -34,20 +34,27 @@ $args = array(
 $products = new WP_Query($args);
 if ($products->have_posts()) : while ($products->have_posts()) : $products->the_post();
 
-    $color_graph = get_field('color_graph');
+    $color_graph = get_field('home_color_graph');
 ?>
 
     <section class="product">
       <div class="container product__container">
         <div class="product__image">
-          <?php the_post_thumbnail('thumb-product-home', ['class' => 'img-fluid product__image__img']); ?>
+          <?php if (get_field('home_image_highlight')):
+            $image = get_field('home_image_highlight');
+          ?>
+
+            <img class="img-fluid product__image__img" src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>" />
+
+          <?php endif; ?>
+
           <div class="product__image__graph" style="background-color: <?= $color_graph ?>;"></div>
         </div>
 
         <div class="product__content">
           <span class="product__content__tag"><?php the_title(); ?></span>
           <h2 class="product__content__title"><?= esc_html(get_field('home_title')); ?></h2>
-          <?php the_excerpt(); ?>
+          <?= esc_html(get_field('home_description')); ?>
           <a href="<?php the_permalink(); ?>" class="btn btn--primary">Saiba mais</a>
         </div>
 

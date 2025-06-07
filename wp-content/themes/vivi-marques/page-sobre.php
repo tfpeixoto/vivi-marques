@@ -5,10 +5,10 @@
  */
 require_once('parts/header.php'); ?>
 
-<section class="hero">
+<section class="hero hero--internal">
   <div class="container hero__container">
     <div class="hero__content">
-      <span class="tag"><?= the_field('tag'); ?></span>
+      <span class="hero__tag"><?= the_field('tag'); ?></span>
       <h1 class="hero__title"><?= the_field('title'); ?></h1>
       <p><?= the_field('description'); ?></p>
     </div>
@@ -20,37 +20,33 @@ require_once('parts/header.php'); ?>
 <section class="history">
   <div class="container">
     <div class="history__title">
-      <h2>História</h2>
-      <p>When applied to building block a website or similar work product, a Visual Guide can be an intermediate step toward the end goal of a complete website. By creating a visual guide along the way, the designer or developer can get input from the other people involved in the website such as the customer, their manager, and other members of the team.</p>
+      <h2><?= the_field('about_title'); ?></h2>
+      <p><?= the_field('about_description'); ?></p>
     </div>
 
     <div class="history__timeline">
       <ul class="timeline">
-        <li class="timeline__item">
-          <span class="timeline__year">2019</span>
-          <span class="timeline__bullet"></span>
-          <span class="timeline__content">Sunt nostrud amet sint do</span>
-        </li>
-        <li class="timeline__item even">
-          <span class="timeline__year">2020</span>
-          <span class="timeline__bullet"></span>
-          <span class="timeline__content">Sunt nostrud amet sint do</span>
-        </li>
-        <li class="timeline__item">
-          <span class="timeline__year">2021</span>
-          <span class="timeline__bullet"></span>
-          <span class="timeline__content">Sunt nostrud amet sint do</span>
-        </li>
-        <li class="timeline__item even">
-          <span class="timeline__year">2022</span>
-          <span class="timeline__bullet"></span>
-          <span class="timeline__content">Sunt nostrud amet sint do</span>
-        </li>
-        <li class="timeline__item">
-          <span class="timeline__year">2023</span>
-          <span class="timeline__bullet"></span>
-          <span class="timeline__content">Sunt nostrud amet sint do</span>
-        </li>
+        <?php
+        if (have_rows('timeline')):
+          $count = 0;
+
+          while (have_rows('timeline')) : the_row();
+
+            $year = get_sub_field('year');
+            $content = get_sub_field('content');
+        ?>
+
+            <li class="timeline__item <?= $count % 2 == 0 ? 'even' : ''; ?>">
+              <span class="timeline__year"><?= $year; ?></span>
+              <span class="timeline__bullet"></span>
+              <span class="timeline__content"><?= $content; ?></span>
+            </li>
+
+        <?php
+            $count++;
+          endwhile;
+        endif;
+        ?>
       </ul>
     </div>
   </div>
@@ -59,15 +55,13 @@ require_once('parts/header.php'); ?>
 <section class="founders">
   <div class="container founders__container">
     <div class="founders__image">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/thumb-growth-mindset.webp" alt="Founders" class="founders__img">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/thumb-growth-mindset.webp" alt="Founders" class="founders__img img-fluid">
     </div>
 
     <div class="founders__content">
-      <span class="tag">Fundadores</span>
-      <h2>Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis </h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam. Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam.</p>
-
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam. Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam.</p>
+      <span class="tag"><?= the_field('founders_tag'); ?></span>
+      <h2><?= the_field('founders_title'); ?></h2>
+      <?= the_field('founders_content'); ?>
     </div>
   </div>
 </section>
@@ -75,28 +69,34 @@ require_once('parts/header.php'); ?>
 <section class="purpose">
   <div class="container">
     <div class="purpose__title">
-      <h2>Propósito</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit phasellus mollis sit aliquam sit nullam neque ultrices.</p>
+      <h2><?= the_field('purpose_title'); ?></h2>
+      <p><?= the_field('purpose_description'); ?></p>
     </div>
 
     <div class="purpose__list">
-      <div class="purpose__item">
-        <span>01</span>
-        <h3>Missão</h3>
-        <p>Lorem ipsum dolor sit amet consecte tur adipiscing elit semper dalaracc lacus vel facilisis volutpat est velitolm.</p>
-      </div>
+      <?php
+      if (have_rows('purpose_items')):
+        while (have_rows('purpose_items')) : the_row();
 
-      <div class="purpose__item">
-        <span>02</span>
-        <h3>Visão</h3>
-        <p>Lorem ipsum dolor sit amet consecte tur adipiscing elit semper dalaracc lacus vel facilisis volutpat est velitolm.</p>
-      </div>
+          $number = get_sub_field('purpose_item_number');
+          $title = get_sub_field('purpose_item_title');
+          $content = get_sub_field('purpose_item_content');
+      ?>
 
-      <div class="purpose__item">
-        <span>03</span>
-        <h3>Valores</h3>
-        <p>Lorem ipsum dolor sit amet consecte tur adipiscing elit semper dalaracc lacus vel facilisis volutpat est velitolm.</p>
-      </div>
+          <div class="purpose__item">
+            <span><?= $number; ?></span>
+            <h3><?= $title; ?></h3>
+            <p><?= $content; ?></p>
+          </div>
+
+      <?php
+        endwhile;
+      else :
+
+        echo '<p>Em breve</p>';
+
+      endif;
+      ?>
     </div>
   </div>
 </section>

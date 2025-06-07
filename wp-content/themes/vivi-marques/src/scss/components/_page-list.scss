@@ -2,6 +2,11 @@
   padding: 5rem 0;
   text-align: center;
 
+  &--secondary {
+    background-color: $secondary;
+    color: $white;
+  }
+
   &__title {
     margin: 0 auto 4rem auto;
     max-width: 600px;
