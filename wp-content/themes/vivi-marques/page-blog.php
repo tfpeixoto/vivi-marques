@@ -21,7 +21,7 @@ require_once('parts/header.php'); ?>
   <div class="container">
     <div class="page-list__title">
       <h2>Posts mais recentes</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan. </p>
+      <p>Mais que um blog, uma comunidade de mulheres que se apoiam. </p>
     </div>
 
     <div class="page-list__list">

@@ -5,7 +5,7 @@
         <img src="<?= get_template_directory_uri(); ?>/assets/images/vivi-marques.webp" width="230" height="45" alt="Vivi Marques" />
       </a>
 
-      <p>Lorem ipsum dolor sit amet consectetur dolol drakgonil adipiscing elit aliquam mauris</p>
+      <p>Sua jornada merece presença, verdade e apoio. Essas ferramentas foram criadas para te lembrar disso a cada escolha.</p>
       <?= do_shortcode('[contact-form-7 id="849392a" title="Newsletter"]'); ?>
     </div>
 

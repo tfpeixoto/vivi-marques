@@ -24,7 +24,7 @@ require_once('parts/header.php'); ?>
       <p><?= the_field('about_description'); ?></p>
     </div>
 
-    <div class="history__timeline">
+  <div class="history__timeline">
       <ul class="timeline">
         <?php
         if (have_rows('timeline')):
@@ -48,11 +48,11 @@ require_once('parts/header.php'); ?>
         endif;
         ?>
       </ul>
-    </div>
+    </div> 
   </div>
 </section>
 
-<section class="founders">
+<!-- <section class="founders">
   <div class="container founders__container">
     <div class="founders__image">
       <img src="<?php echo get_template_directory_uri(); ?>/assets/images/thumb-growth-mindset.webp" alt="Founders" class="founders__img img-fluid">
@@ -64,7 +64,7 @@ require_once('parts/header.php'); ?>
       <?= the_field('founders_content'); ?>
     </div>
   </div>
-</section>
+</section> -->
 
 <section class="purpose">
   <div class="container">
