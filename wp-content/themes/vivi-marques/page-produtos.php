@@ -11,6 +11,7 @@ require_once('parts/header.php'); ?>
       <span class="hero__tag"><?= the_field('tag'); ?></span>
       <h1 class="hero__title"><?= the_field('title'); ?></h1>
       <p><?= the_field('description'); ?></p>
+      
     </div>
   </div>
 
@@ -21,7 +22,7 @@ require_once('parts/header.php'); ?>
   <div class="container">
     <div class="page-list__title">
       <h2>Nossos produtos</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan. </p>
+      <p>Saiba como podemos enriquecer sua jornada com nossos produtos e serviços. Encontre aqui o melhor pra você.</p>
     </div>
 
     <div class="products-list">
@@ -71,6 +72,7 @@ require_once('parts/header.php'); ?>
     $args = array(
       'post_type' => 'depoimentos',
       'posts_per_page' => 1,
+      'orderby'        => 'rand', 
       'terms' => get_post_field('post_name', get_post()),
     );
 
@@ -83,7 +85,9 @@ require_once('parts/header.php'); ?>
 
         <div class="case-testimonial__author">
           <div class="case-testimonial__author__image">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonial-avatar.webp" alt="Avatar">
+            <?php if ( has_post_thumbnail() ) { ?>
+                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Imagem em destaque" />
+            <?php } ?>
           </div>
 
           <div class="case-testimonial__author__content">

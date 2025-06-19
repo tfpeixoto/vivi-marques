@@ -11,14 +11,7 @@ require_once('parts/header.php'); ?>
       <h1 class="hero__title"><?= the_field('title'); ?></h1>
       <p class="hero__subtitle"><?= the_field('description'); ?></p>
 
-      <div class="hero__content__buttons">
-        <a href="#" class="btn">Saiba mais
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8.404 1.654 14.75 8l-6.346 6.346M14.75 8H1.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </a>
-        <a href="#" class="btn btn-outline-primary">Acesse agora</a>
-      </div>
+      
     </div>
   </div>
 
@@ -29,7 +22,7 @@ require_once('parts/header.php'); ?>
 $args = array(
   'post_type' => 'produtos',
   'posts_per_page' => 3,
-  'order' => 'ASC',
+  'order' => 'DESC',
 );
 $products = new WP_Query($args);
 if ($products->have_posts()) : while ($products->have_posts()) : $products->the_post();
@@ -105,7 +98,9 @@ endif; ?>
         ?>
 
             <button type="button" data-bs-target="#testimonial-carousel" data-bs-slide-to="<?= $count; ?>" aria-current="<?= $count == 0 ? 'true' : ''; ?>" aria-label="<?= the_title(); ?>" class="<?= $count == 0 ? 'active' : ''; ?>">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonial-avatar.webp" alt="Avatar">
+             <?php if ( has_post_thumbnail() ) { ?>
+                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Imagem em destaque" />
+            <?php } ?>
               <div class="testimonials__nav__name">
                 <h3><?php the_title(); ?></h3>
                 <p><?= get_field('position'); ?></p>
@@ -121,11 +116,11 @@ endif; ?>
   </div>
 </section>
 
-<section class="blog-posts">
+<!-- <section class="blog-posts">
   <div class="container">
     <div class="blog-posts__title">
       <h2>Blog</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan. </p>
+      <p>Histórias que conectam, inspiram e fortalecem </p>
     </div>
 
     <div class="blog-posts__list">
@@ -143,6 +138,6 @@ endif; ?>
       endif; ?>
     </div>
   </div>
-</section>
+</section> -->
 
 <?php require_once('parts/footer.php'); ?>

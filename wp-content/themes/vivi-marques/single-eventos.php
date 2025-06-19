@@ -15,7 +15,7 @@
   <div class="container">
     <div class="events__title">
       <h2>Próximos eventos</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit semper dalar elementum tempus hac tellus libero accumsan. </p>
+      <p>Participe de experiências que conectam, transformam e inspiram. Descubra o que vem por aí. </p>
     </div>
 
     <div class="events__list">

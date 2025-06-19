@@ -6,15 +6,21 @@
       <span class="hero__tag">Produtos</span>
       <h1 class="hero__subtitle"><strong><?php the_title(); ?></strong></h1>
       <?php the_excerpt(); ?>
+      <div class="hero__content__buttons">
+
+        <?php if (get_field('link_do_produto') == '') : ?>
+          <a href="<?= the_field('link_do_produto'); ?>" class="btn btn-outline-primary">Adquira já</a>
+        <?php endif; ?>
+      </div>
     </div>
 
-    <?php the_post_thumbnail('thumb-hero', ['class' => 'img-fluid hero__image']); ?>
+    <?php the_post_thumbnail('thumb-product-single', ['class' => 'img-fluid hero__image']); ?>
   </div>
 </section>
 
 <section class="product-content">
   <div class="container">
-    conteúdo
+    <?php the_content(); ?>
   </div>
 </section>
 
@@ -24,6 +30,7 @@
     $args = array(
       'post_type' => 'depoimentos',
       'posts_per_page' => 1,
+      'orderby'        => 'rand',
       'terms' => get_post_field('post_name', get_post()),
     );
 
@@ -36,7 +43,9 @@
 
         <div class="product-testimonial__author">
           <div class="product-testimonial__author__image">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/testimonial-avatar.webp" alt="Avatar">
+            <?php if (has_post_thumbnail()) { ?>
+              <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="Imagem em destaque" />
+            <?php } ?>
           </div>
 
           <div class="product-testimonial__author__content">

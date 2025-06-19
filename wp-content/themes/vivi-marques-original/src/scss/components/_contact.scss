@@ -1,0 +1,52 @@
+.contact {
+  padding: 0;
+
+  &__container {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__form {
+    padding: 7rem 0;
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    form {
+      padding-top: 4rem;
+
+      label {
+        font-size: 1.125rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .wpcf7-text,
+      .wpcf7-textarea,
+      .wpcf7-select {
+        background-color: #f6f6f6;
+        border: none;
+        border-radius: 100px;
+        color: #8D8BA7;
+        font-size: 1.125rem;
+        padding: 1.5rem;
+        margin: .75rem 0 2rem 0;
+        width: 100%;
+      }
+    }
+  }
+
+  &__image {
+    background: $soft-grey;
+    // background-image: url('../images/thumb-growth-mindset.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
