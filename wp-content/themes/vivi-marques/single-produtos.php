@@ -8,7 +8,7 @@
       <?php the_excerpt(); ?>
       <div class="hero__content__buttons">
 
-        <?php if (get_field('link_do_produto') == '') : ?>
+        <?php if (get_field('link_do_produto')) : ?>
           <a href="<?= the_field('link_do_produto'); ?>" class="btn btn-outline-primary">Adquira já</a>
         <?php endif; ?>
       </div>
