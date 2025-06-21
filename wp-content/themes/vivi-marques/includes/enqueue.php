@@ -23,11 +23,6 @@ function cynthia_guedes_enqueue_styles_scripts()
     wp_enqueue_style('current', $style_path, array(), time());
   }
 
-  // Remove jquery
-  if (!is_admin()) {
-    wp_deregister_script('jquery');
-  }
-
   // Remove support to block editor
   if (!is_single()) {
     wp_dequeue_style('wp-block-library');

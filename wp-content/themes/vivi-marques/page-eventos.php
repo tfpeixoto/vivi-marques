@@ -27,7 +27,7 @@ require_once('parts/header.php'); ?>
     <div class="page-list__list">
       <?php
       $args = array(
-        'post_type' => 'agenda',
+        'post_type' => 'eventos',
         'posts_per_page' => 3,
       );
       $product = new WP_Query($args);

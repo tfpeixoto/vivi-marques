@@ -15,9 +15,13 @@ function vivi_marques_add_theme_resources()
   add_image_size('links-image', 200, 0, array('center', 'center'));
   add_post_type_support('especialidades', 'excerpt');
   add_post_type_support('page', 'excerpt');
+  add_theme_support('elementor', array(
+    'page-layout' => true,
+  ));
+  add_theme_support('align-wide');
+  add_theme_support('align-full');
 }
 add_action('after_setup_theme', 'vivi_marques_add_theme_resources');
-
 
 /**
  * Register Custom Navigation Walker

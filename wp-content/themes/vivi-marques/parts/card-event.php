@@ -19,5 +19,5 @@
     <p><?= the_field('place'); ?></p>
   </div>
 
-  <a href="<?php the_field('url'); ?>" target="_blank" class="btn btn-outline-common">Saiba mais</a>
+  <a href="<?= get_field('url') ? the_field('url') : the_permalink(); ?>" target="<?= get_field('url') ? '_blank' : ''; ?>" class="btn btn-outline-common">Saiba mais</a>
 </article>

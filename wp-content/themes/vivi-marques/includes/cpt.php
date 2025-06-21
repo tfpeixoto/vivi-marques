@@ -143,7 +143,7 @@ add_action('init', 'vivi_marques_post_type_cases');
 /**
  * Custom post type Products
  */
-function vivi_marques_post_type_schedule()
+function vivi_marques_post_type_events()
 {
   $nomeSingular = 'Evento';
   $nomePlural = 'Eventos';
@@ -170,8 +170,9 @@ function vivi_marques_post_type_schedule()
     'menu_icon' => 'dashicons-calendar',
     'supports' => $supports,
     'show_in_rest' => true,
+    'hierarchical' => false,
   );
 
-  register_post_type('agenda', $args);
+  register_post_type('eventos', $args);
 }
-add_action('init', 'vivi_marques_post_type_schedule');
+add_action('init', 'vivi_marques_post_type_events');
